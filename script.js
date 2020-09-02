@@ -7,5 +7,34 @@ const text = document.getElementById('text');
 const amount = document.getElementById('amount');
 
 const dummyTransactions = [
-    {}
+    {id: 1, text:'Jersey', amount: -100},
+    {id: 2, text:'Salary', amount: 900},
+    {id: 3, text:'Book', amount: -20},
+    {id: 4, text: 'TV', amount: 200}
 ];
+
+let transactions = dummyTransactions;
+
+//Add transactions to DOM list
+function addTransactionDOM(transaction){
+    //Get sign
+    const sign = transaction.amount < 0 ? '-' : '+'
+    //transaction = object, amount = property
+    const item = document.createElement('li');
+
+    //Add class based on value
+    item.classList.add(transaction.amount < 0 ? 'minus' : 'plus')
+
+    item.innerHTML = `
+        ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span> <button class="delete-btn>X</button>
+    `;
+
+    list.appendChild(item);
+}
+
+//Init app
+function init(){
+    list.innerHTML= '';
+
+    transactions.forEach(addTransactionDOM);
+}
