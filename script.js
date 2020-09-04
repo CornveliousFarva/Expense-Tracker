@@ -15,6 +15,8 @@ const dummyTransactions = [
 
 let transactions = dummyTransactions;
 
+//Add transaction
+
 //Add transactions to DOM list
 function addTransactionDOM(transaction){
     //Get sign
@@ -61,3 +63,6 @@ function init(){
 
     transactions.forEach(addTransactionDOM);
 }
+
+//Event listener to add new transaction
+form.addEventListener('submit', addTransaction);
