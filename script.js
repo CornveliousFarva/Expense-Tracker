@@ -6,14 +6,16 @@ const form = document.getElementById('form');
 const text = document.getElementById('text');
 const amount = document.getElementById('amount');
 
-const dummyTransactions = [
-    {id: 1, text:'Jersey', amount: -100},
-    {id: 2, text:'Salary', amount: 900},
-    {id: 3, text:'Book', amount: -20},
-    {id: 4, text: 'TV', amount: 200}
-];
+// const dummyTransactions = [
+//     {id: 1, text:'Jersey', amount: -100},
+//     {id: 2, text:'Salary', amount: 900},
+//     {id: 3, text:'Book', amount: -20},
+//     {id: 4, text: 'TV', amount: 200}
+// ];
 
-let transactions = dummyTransactions;
+const localStorage = JSON.parse(localStorage.getItem('transactions'));
+
+let transactions = localStorage.getItem('transactions') !== null ? localStorage : [];
 
 //Add transaction
 function addTransaction(e){
