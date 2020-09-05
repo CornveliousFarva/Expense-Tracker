@@ -13,9 +13,9 @@ const amount = document.getElementById('amount');
 //     {id: 4, text: 'TV', amount: 200}
 // ];
 
-const localStorage = JSON.parse(localStorage.getItem('transactions'));
+const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'));
 
-let transactions = localStorage.getItem('transactions') !== null ? localStorage : [];
+let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : [];
 
 //Add transaction
 function addTransaction(e){
@@ -35,6 +35,8 @@ function addTransaction(e){
         addTransactionDOM(transaction);
 
         updateValues();
+
+        updateLocalStorage();
 
         text.value = '';
         amount.value = '';
@@ -93,6 +95,11 @@ function removeTransaction(id){
     updateLocalStorage();
 
     init();
+}
+
+//Update local storage transactions
+function updateLocalStorage(){
+    localStorage.setItem('transactions', JSON.stringify(transactions))
 }
 
 //Init app
