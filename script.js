@@ -5,6 +5,7 @@ const list = document.getElementById('list');
 const form = document.getElementById('form');
 const text = document.getElementById('text');
 const amount = document.getElementById('amount');
+const transaction = document.getElementById('transaction');
 
 // const dummyTransactions = [
 //     {id: 1, text:'Jersey', amount: -100},
